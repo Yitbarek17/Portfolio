@@ -1,21 +1,23 @@
 :root {
-  --navy-blue: #1a365d;
-  --light-blue: #2c5282;
-  --accent-blue: #4299e1;
-  --light-bg: #f7fafc;
-  --dark-bg: #1a202c;
-  --light-card: #ffffff;
-  --dark-card: #2d3748;
-  --light-text: #2d3748;
-  --dark-text: #e2e8f0;
-  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --card-hover-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --navy-blue: #1e2a47; /* Slightly darker navy with a more muted tone */
+  --light-blue: #3b82f6; /* Brighter light blue for a fresh pop */
+  --accent-blue: #60a5fa; /* A softer yet still vibrant accent */
+  --light-bg: #eef2f7; /* Subtle off-white background for a soft feel */
+  --dark-bg: #2d3748; /* Still rich but with more contrast */
+  --light-card: #ffffff; /* Crisp white for light mode cards */
+  --dark-card: #4a5568; /* Slightly deeper dark card for more contrast */
+  --light-text: #2b2b2b; /* Darker text to stand out on light backgrounds */
+  --dark-text: #f7fafc; /* Very light text for dark mode */
+  --card-shadow: 0 6px 8px -2px rgba(0, 0, 0, 0.12),
+    0 3px 6px -2px rgba(0, 0, 0, 0.08); /* Softer, more natural card shadow */
+  --card-hover-shadow: 0 8px 12px -4px rgba(0, 0, 0, 0.15),
+    0 5px 8px -3px rgba(0, 0, 0, 0.06); /* Subtle yet noticeable hover effect */
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -83,7 +85,8 @@ body {
 
 /* Smooth transitions */
 * {
-  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* Animations */
@@ -129,7 +132,7 @@ body {
   .container {
     padding: 1rem;
   }
-  
+
   .card {
     margin-bottom: 1rem;
   }
