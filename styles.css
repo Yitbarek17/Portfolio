@@ -1,0 +1,32 @@
+/* Gradient background for light mode */
+body {
+    background: linear-gradient(to right, #ffecd2, #fcb69f);
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(to right, #434343, #000000);
+    }
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-form label {
+    align-self: flex-start;
+    margin-right: auto;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+.navbar-logo:hover {
+    content: "Israel Theodros' Portfolio";
+}
