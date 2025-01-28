@@ -54,7 +54,7 @@ const Contact = ({ darkMode }) => {
   };
 
   const contactInfo = [
-    { icon: faEnvelope, text: "yitbarek@example.com", label: "Email" },
+    { icon: faEnvelope, text: "yitbarek@gmail.com", label: "Email" },
     { icon: faPhone, text: "+2519 00 00 00 00", label: "Phone" },
     { icon: faLocationDot, text: "Addis Ababa, Ethiopia", label: "Location" },
   ];
