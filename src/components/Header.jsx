@@ -15,7 +15,9 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         <Navbar.Brand as={Link} to="/" className="fw-bold text-white">
           Yitbarek Daniel
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav"
+            darkMode ? "" : "bg-light"
+          />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link as={Link} to="/" className="text-white">
