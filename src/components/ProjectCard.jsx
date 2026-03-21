@@ -25,7 +25,7 @@ const ProjectCard = ({ title, description, technologies, link, darkMode }) => {
           transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
           backdropFilter: 'blur(12px)',
           background: darkMode ? 'rgba(30, 41, 59, 0.6)' : 'rgba(255, 255, 255, 0.9)',
-          border: `1px solid ${isHovered ? (darkMode ? 'rgba(59, 130, 246, 0.4)' : 'rgba(99, 102, 241, 0.3)') : (darkMode ? 'rgba(59, 130, 246, 0.2)' : 'rgba(99, 102, 241, 0.2)'}`,
+          border: `1px solid ${isHovered ? (darkMode ? 'rgba(59, 130, 246, 0.4)' : 'rgba(99, 102, 241, 0.3)') : (darkMode ? 'rgba(59, 130, 246, 0.2)' : 'rgba(99, 102, 241, 0.2)')}`,
           boxShadow: isHovered ? '0 20px 40px rgba(59, 130, 246, 0.15)' : '0 4px 6px rgba(0, 0, 0, 0.1)',
         }}
       >
