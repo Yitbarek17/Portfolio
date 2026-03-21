@@ -54,8 +54,8 @@ const Contact = ({ darkMode }) => {
   };
 
   const contactInfo = [
-    { icon: faEnvelope, text: "yitbarek@gmail.com", label: "Email" },
-    { icon: faPhone, text: "+2519 00 00 00 00", label: "Phone" },
+    { icon: faEnvelope, text: "yitdan17@gmail.com", label: "Email" },
+    { icon: faPhone, text: "+2519 11 48 50 63", label: "Phone" },
     { icon: faLocationDot, text: "Addis Ababa, Ethiopia", label: "Location" },
   ];
 
@@ -74,11 +74,16 @@ const Contact = ({ darkMode }) => {
           {/* Section Heading */}
           <Row className="justify-content-center">
             <Col lg={8} className="text-center mb-5">
-              <h2 className="display-4 mb-3">Get in Touch</h2>
-              <p className="lead">
-                I'm currently exploring variety of application and system
-                development methods. Feel free to reach out if you want to work
-                together!
+              <motion.h2 
+                className="display-3 mb-3 gradient-text"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
+                Get In Touch
+              </motion.h2>
+              <p className="lead fs-5" style={{ opacity: 0.9 }}>
+                I'm currently exploring modern web development. Let's build something amazing together!
               </p>
             </Col>
           </Row>
@@ -88,21 +93,34 @@ const Contact = ({ darkMode }) => {
             {contactInfo.map((info, index) => (
               <Col key={index} md={4} className="text-center mb-4">
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  className={`p-4 rounded-3 ${
-                    darkMode ? "bg-dark border border-light" : "bg-white border"
-                  }`}
-                  style={{ boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -5,
+                  }}
+                  className="p-4 rounded-3"
+                  style={{
+                    background: darkMode 
+                      ? 'rgba(30, 41, 59, 0.6)' 
+                      : 'rgba(255, 255, 255, 0.9)',
+                    backdropFilter: 'blur(12px)',
+                    border: `1px solid ${darkMode ? 'rgba(59, 130, 246, 0.2)' : 'rgba(99, 102, 241, 0.2)'}`,
+                    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+                    transition: 'all 0.3s ease',
+                  }}
                 >
                   <FontAwesomeIcon
                     icon={info.icon}
-                    className={`mb-3 ${
-                      darkMode ? "text-light" : "text-primary"
-                    }`}
-                    style={{ fontSize: "2rem" }}
+                    className="mb-3"
+                    style={{
+                      fontSize: "2.5rem",
+                      background: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      filter: 'none',
+                    }}
                   />
-                  <h5 className="mb-2">{info.label}</h5>
-                  <p className="mb-0">{info.text}</p>
+                  <h5 className="mb-2 fw-bold">{info.label}</h5>
+                  <p className="mb-0" style={{ opacity: 0.9 }}>{info.text}</p>
                 </motion.div>
               </Col>
             ))}
@@ -112,35 +130,60 @@ const Contact = ({ darkMode }) => {
           <Row className="justify-content-center">
             <Col md={8}>
               {submitted && (
-                <Alert
-                  variant="success"
-                  onClose={() => setSubmitted(false)}
-                  dismissible
+                <motion.div
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   className="mb-4"
                 >
-                  Thank you for your message! I'll get back to you soon.
-                </Alert>
+                  <Alert
+                    variant="success"
+                    onClose={() => setSubmitted(false)}
+                    dismissible
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1), rgba(16, 185, 129, 0.1))',
+                      border: '1px solid rgba(34, 197, 94, 0.3)',
+                      color: darkMode ? '#fff' : '#065f46',
+                      backdropFilter: 'blur(8px)',
+                    }}
+                  >
+                    <strong>Thank you for your message!</strong> I'll get back to you soon.
+                  </Alert>
+                </motion.div>
               )}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className={`p-4 rounded-3 ${
-                  darkMode ? "bg-dark border border-light" : "bg-white border"
-                }`}
-                style={{ boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}
+                className="p-5 rounded-3"
+                style={{
+                  background: darkMode 
+                    ? 'rgba(30, 41, 59, 0.6)' 
+                    : 'rgba(255, 255, 255, 0.9)',
+                  backdropFilter: 'blur(12px)',
+                  border: `1px solid ${darkMode ? 'rgba(59, 130, 246, 0.2)' : 'rgba(99, 102, 241, 0.2)'}`,
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)',
+                }}
               >
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-4">
-                    <Form.Label>Name</Form.Label>
+                    <Form.Label className="fw-bold">Name</Form.Label>
                     <Form.Control
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
                       isInvalid={!!errors.name}
-                      className={darkMode ? "bg-dark text-light" : ""}
                       placeholder="Your name"
+                      style={{
+                        background: darkMode 
+                          ? 'rgba(15, 23, 42, 0.6)' 
+                          : 'rgba(255, 255, 255, 0.8)',
+                        border: `1px solid ${darkMode ? 'rgba(59, 130, 246, 0.3)' : 'rgba(99, 102, 241, 0.3)'}`,
+                        color: darkMode ? '#fff' : '#000',
+                        borderRadius: '12px',
+                        padding: '0.8em',
+                        backdropFilter: 'blur(8px)',
+                      }}
                     />
                     <Form.Control.Feedback type="invalid">
                       {errors.name}
@@ -148,15 +191,24 @@ const Contact = ({ darkMode }) => {
                   </Form.Group>
 
                   <Form.Group className="mb-4">
-                    <Form.Label>Email</Form.Label>
+                    <Form.Label className="fw-bold">Email</Form.Label>
                     <Form.Control
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
                       isInvalid={!!errors.email}
-                      className={darkMode ? "bg-dark text-light" : ""}
                       placeholder="your.email@example.com"
+                      style={{
+                        background: darkMode 
+                          ? 'rgba(15, 23, 42, 0.6)' 
+                          : 'rgba(255, 255, 255, 0.8)',
+                        border: `1px solid ${darkMode ? 'rgba(59, 130, 246, 0.3)' : 'rgba(99, 102, 241, 0.3)'}`,
+                        color: darkMode ? '#fff' : '#000',
+                        borderRadius: '12px',
+                        padding: '0.8em',
+                        backdropFilter: 'blur(8px)',
+                      }}
                     />
                     <Form.Control.Feedback type="invalid">
                       {errors.email}
@@ -164,7 +216,7 @@ const Contact = ({ darkMode }) => {
                   </Form.Group>
 
                   <Form.Group className="mb-4">
-                    <Form.Label>Message</Form.Label>
+                    <Form.Label className="fw-bold">Message</Form.Label>
                     <Form.Control
                       as="textarea"
                       rows={5}
@@ -172,8 +224,17 @@ const Contact = ({ darkMode }) => {
                       value={formData.message}
                       onChange={handleChange}
                       isInvalid={!!errors.message}
-                      className={darkMode ? "bg-dark text-light" : ""}
                       placeholder="Your message here..."
+                      style={{
+                        background: darkMode 
+                          ? 'rgba(15, 23, 42, 0.6)' 
+                          : 'rgba(255, 255, 255, 0.8)',
+                        border: `1px solid ${darkMode ? 'rgba(59, 130, 246, 0.3)' : 'rgba(99, 102, 241, 0.3)'}`,
+                        color: darkMode ? '#fff' : '#000',
+                        borderRadius: '12px',
+                        padding: '0.8em',
+                        backdropFilter: 'blur(8px)',
+                      }}
                     />
                     <Form.Control.Feedback type="invalid">
                       {errors.message}
@@ -186,8 +247,16 @@ const Contact = ({ darkMode }) => {
                   >
                     <Button
                       type="submit"
-                      variant={darkMode ? "light" : "dark"}
                       className="w-100 py-3"
+                      style={{
+                        background: 'linear-gradient(135deg, #3b82f6, #6366f1)',
+                        border: 'none',
+                        borderRadius: '12px',
+                        fontWeight: '600',
+                        fontSize: '1.1rem',
+                        boxShadow: '0 8px 25px rgba(59, 130, 246, 0.25)',
+                        transition: 'all 0.3s ease',
+                      }}
                     >
                       Send Message
                     </Button>

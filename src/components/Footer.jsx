@@ -19,6 +19,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = ({ darkMode }) => {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer
       className={`py-4 ${
@@ -28,7 +30,7 @@ const Footer = ({ darkMode }) => {
       <Container>
         <Row className="align-items-center">
           <Col md={6} className="text-center text-md-start">
-            <p className="mb-0">&copy; 2025 Yitbarek . All rights reserved.</p>
+            <p className="mb-0">&copy; {currentYear} Yitbarek . All rights reserved.</p>
           </Col>
           <Col md={6}>
             <div className="d-flex justify-content-center justify-content-md-end gap-3">

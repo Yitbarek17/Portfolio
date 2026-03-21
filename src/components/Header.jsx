@@ -1,8 +1,12 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { Moon, Sun } from "lucide-react";
 
 const Header = ({ darkMode, toggleDarkMode }) => {
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <Navbar
       expand="lg"
@@ -12,7 +16,11 @@ const Header = ({ darkMode, toggleDarkMode }) => {
       style={{ transition: "all 0.3s ease-in-out" }}
     >
       <Container>
-        <Navbar.Brand as={Link} to="/" className="fw-bold text-white">
+        <Navbar.Brand
+          onClick={() => scrollToSection("hero")}
+          className="fw-bold"
+          style={{ cursor: "pointer" }}
+        >
           Yitbarek Daniel
         </Navbar.Brand>
         <Navbar.Toggle
@@ -21,13 +29,16 @@ const Header = ({ darkMode, toggleDarkMode }) => {
         />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/" className="text-white">
-              Home
+            <Nav.Link onClick={() => scrollToSection("about")} className="text-white">
+              About
             </Nav.Link>
-            <Nav.Link as={Link} to="/projects" className="text-white">
+            <Nav.Link onClick={() => scrollToSection("skills")} className="text-white">
+              Skills
+            </Nav.Link>
+            <Nav.Link onClick={() => scrollToSection("projects")} className="text-white">
               Projects
             </Nav.Link>
-            <Nav.Link as={Link} to="/contact" className="text-white">
+            <Nav.Link onClick={() => scrollToSection("contact")} className="text-white">
               Contact
             </Nav.Link>
             <button
